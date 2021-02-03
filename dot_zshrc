@@ -1,0 +1,32 @@
+source ~/.zinit/bin/zinit.zsh
+
+zinit depth"1" light-mode for \
+    zsh-users/zsh-autosuggestions \
+    zdharma/fast-syntax-highlighting \
+    sindresorhus/pure
+
+zinit depth"1" light-mode wait lucid for \
+    as"program" \
+        atclone"luajit z.lua --init zsh > z.zsh" atpull"%atclone"\
+        atload"source z.zsh" \
+        skywind3000/z.lua \
+    blockf zsh-users/zsh-completions
+
+ZSH_AUTOSUGGEST_USE_ASYNC=yes
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+export PATH=$HOME/.config/guix/current/bin:$PATH:$HOME/.local/bin
+export LD_PRELOAD=/usr/lib/i386-linux-gnu/libgtk3-nocsd.so.0
+export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+GUIX_PROFILE="$HOME/.guix-profile"
+. "$GUIX_PROFILE/etc/profile"
+alias zc='z -c'      # 严格匹配当前路径的子路径
+alias zz='z -i'      # 使用交互式选择模式
+alias zf='z -I'      # 使用 fzf 对多个结果进行选择
+alias zb='z -b'      # 快速回到父目录
+alias ls='ls --color=auto'
+
+indentdiff() { cat $1 | indent - | diff -pE --color=always $1 -; }
+
+# autoload -Uz compinit; compinit
+# zinit cdreplay -q
