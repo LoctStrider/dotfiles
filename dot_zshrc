@@ -10,7 +10,8 @@ zinit depth"1" light-mode wait lucid for \
         atclone"luajit z.lua --init zsh > z.zsh" atpull"%atclone"\
         atload"source z.zsh" \
         skywind3000/z.lua \
-    blockf zsh-users/zsh-completions
+    blockf zsh-users/zsh-completions \
+    wfxr/forgit
 
 ZSH_AUTOSUGGEST_USE_ASYNC=yes
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
