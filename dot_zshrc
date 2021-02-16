@@ -29,3 +29,5 @@ alias ls='ls --color=auto'
 
 autoload -Uz compinit; compinit
 zinit cdreplay -q
+
+set -o emacs
