@@ -85,7 +85,6 @@
 (set-options-with global-option
                   :completeopt "menuone,noinsert,noselect"
                   :shortmess "cfilnxtToOF")
-(nvim.set_var :completion_enable_snippet "vim-vsnip")
 (nvim.set_var :completion_chain_complete_list
-              {:default {:default {:complete_items [:snippet :ts]}}})
+              {:default {:default [{:complete_items [:ts]}]}})
 (nvim.command "autocmd BufEnter * lua require'completion'.on_attach()")
