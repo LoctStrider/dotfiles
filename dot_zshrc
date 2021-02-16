@@ -15,7 +15,7 @@ zinit depth"1" light-mode wait lucid for \
 ZSH_AUTOSUGGEST_USE_ASYNC=yes
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-export PATH=$HOME/.config/guix/current/bin:$PATH:$HOME/.local/bin
+export PATH=$HOME/.config/guix/current/bin:$PATH:$HOME/.local/bin:$HOME/scripts
 export LD_PRELOAD=/usr/lib/i386-linux-gnu/libgtk3-nocsd.so.0
 export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 GUIX_PROFILE="$HOME/.guix-profile"
@@ -26,7 +26,5 @@ alias zf='z -I'      # 使用 fzf 对多个结果进行选择
 alias zb='z -b'      # 快速回到父目录
 alias ls='ls --color=auto'
 
-indentdiff() { cat $1 | indent - | diff -pE --color=always $1 -; }
-
-# autoload -Uz compinit; compinit
-# zinit cdreplay -q
+autoload -Uz compinit; compinit
+zinit cdreplay -q
