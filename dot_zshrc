@@ -16,6 +16,8 @@ zinit depth"1" light-mode wait lucid for \
 ZSH_AUTOSUGGEST_USE_ASYNC=yes
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+eval "$(direnv hook zsh)"
+
 export PATH=$HOME/.config/guix/current/bin:$PATH:$HOME/.local/bin:$HOME/scripts
 export LD_PRELOAD=/usr/lib/i386-linux-gnu/libgtk3-nocsd.so.0
 export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
