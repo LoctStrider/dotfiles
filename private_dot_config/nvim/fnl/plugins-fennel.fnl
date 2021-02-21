@@ -59,4 +59,5 @@
   (p.use :MarcWeber/vim-addon-local-vimrc)
   (values))
 
-(p.startup packer-startup)
+(p.startup {1 packer-startup
+            :config {:git {:clone_timeout 300}}})
