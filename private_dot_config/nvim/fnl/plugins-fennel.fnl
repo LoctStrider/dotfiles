@@ -57,6 +57,7 @@
   (p.use :gcmt/wildfire.vim)
   (p.use :sgur/vim-editorconfig)
   (p.use :MarcWeber/vim-addon-local-vimrc)
+  (p.use :sheerun/vim-polyglot)
   (values))
 
 (p.startup {1 packer-startup
