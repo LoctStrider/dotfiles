@@ -89,5 +89,9 @@
               {:default {:default [{:complete_items [:ts]}]}})
 (nvim.command "autocmd BufEnter * lua require'completion'.on_attach()")
 
+;; asynctasks.vim
+(nvim.set_var :asyncrun_open 5)
+(nvim.set_var :asynctasks_term_pos :top)
+
 ;; matchup
 (nvim.set_var :matchup_transmute_enabled 1)
