@@ -89,6 +89,10 @@
               {:default {:default [{:complete_items [:ts]}]}})
 (nvim.command "autocmd BufEnter * lua require'completion'.on_attach()")
 
+;; telescope.nvim
+(set-keymaps :n "<leader>t" "<Cmd>lua require('telescope').extensions.asynctasks.all()<CR>" {:noremap true}
+             :n "<leader>b" "<Cmd>lua require('telescope.builtin').buffers()<CR>" {:noremap true})
+
 ;; asynctasks.vim
 (nvim.set_var :asyncrun_open 5)
 (nvim.set_var :asynctasks_term_pos :top)

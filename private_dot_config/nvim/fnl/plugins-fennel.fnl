@@ -53,8 +53,14 @@
   (p.use :gcmt/wildfire.vim)
   (p.use :sgur/vim-editorconfig)
   (p.use :MarcWeber/vim-addon-local-vimrc)
+  (p.use {1 :nvim-telescope/telescope.nvim
+          :requires [:nvim-lua/popup.nvim
+                     :nvim-lua/plenary.nvim]})
   (p.use {1 :skywind3000/asynctasks.vim
           :requires :skywind3000/asyncrun.vim})
+  (p.use {1 :GustavoKatel/telescope-asynctasks.nvim
+          :requires [:asynctasks.vim
+                     :telescope.nvim]})
   (p.use {1 :skywind3000/asyncrun.extra
           :requires :asyncrun.vim})
   (p.use :sheerun/vim-polyglot)
