@@ -16,8 +16,6 @@ zinit depth"1" light-mode wait lucid for \
 ZSH_AUTOSUGGEST_USE_ASYNC=yes
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-eval "$(direnv hook zsh)"
-
 export PATH=$HOME/.config/guix/current/bin:$PATH:$HOME/.local/bin:$HOME/scripts
 export LD_PRELOAD=/usr/lib/i386-linux-gnu/libgtk3-nocsd.so.0
 export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
@@ -33,3 +31,37 @@ autoload -Uz compinit; compinit
 zinit cdreplay -q
 
 set -o emacs
+
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, remove the "export" as in:
+    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # NOTE: NNN_TMPFILE is fixed, should not be modified
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    nnn -e "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
+export _Z_DATA=$HOME/.zlua
+export NNN_X='x:_chmod +x $nnn'
+export NNN_PLUG="p:getplugs;$NNN_X;z:fzz"
+
+eval "$(direnv hook zsh)"
