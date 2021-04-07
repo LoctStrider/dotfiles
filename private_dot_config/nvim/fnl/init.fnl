@@ -72,7 +72,7 @@
 
 ;; nvim-treesitter
 (let [treesitter (require :nvim-treesitter.configs)]
-  (treesitter.setup {:ensure_installed :maintained
+  (treesitter.setup {:ensure_installed [:c]
                      :highlight {:enable true}
                      :incremental_selection {:enable true}}))
 (set-options-with [global-option (window-option 0)]
