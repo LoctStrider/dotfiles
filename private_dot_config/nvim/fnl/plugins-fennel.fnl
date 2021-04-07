@@ -64,6 +64,7 @@
   (p.use {1 :skywind3000/asyncrun.extra
           :requires :asyncrun.vim})
   (p.use :sheerun/vim-polyglot)
+  (p.use :liuchengxu/vista.vim)
   (values))
 
 (p.startup {1 packer-startup

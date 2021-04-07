@@ -99,3 +99,8 @@
 
 ;; matchup
 (nvim.set_var :matchup_transmute_enabled 1)
+
+;; vista.vim
+(nvim.set_var :vista_fold_toggle_icons ["+" "-"])
+(nvim.set_var :vista_sidebar_open_cmd "30vsplit")
+(nvim.set_var :vista#renderer#enable_icon 0)
