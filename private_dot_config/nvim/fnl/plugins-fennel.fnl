@@ -64,6 +64,9 @@
   (p.use {1 :skywind3000/asyncrun.extra
           :requires :asyncrun.vim})
   (p.use :sheerun/vim-polyglot)
+  (p.use :machakann/vim-sandwich)
+  (p.use :tpope/vim-unimpaired)
+  (p.use :tpope/vim-eunuch)
   (p.use :liuchengxu/vista.vim)
   (values))
 
