@@ -30,26 +30,22 @@
                      :opt true}
           :config (fn []
                     (let [lualine (require :lualine)]
-                      (set lualine.theme :gruvbox)
-                      (set lualine.separator :|)
-                      (set
-                        lualine.sections
-                        {:lualine_a [:mode]
-                         :lualine_b [:branch]
-                         :lualine_c [:filename]
-                         :lualine_x [:encoding :fileformat :filetype]
-                         :lualine_y [:progress]
-                         :lualine_z [:location]})
-                      (set
-                        lualine.inactive_sections
-                        {:lualine_a []
-                         :lualine_b []
-                         :lualine_c [:filename]
-                         :lualine_x [:location]
-                         :lualine_y []
-                         :lualine_z []})
-                      (set lualine.extensions [:fzf])
-                      (lualine.status))
+                      (lualine.setup {:options {:theme :gruvbox
+                                                :section_separators ["" ""]
+                                                :component_separators ["" ""]}
+                                      :sections {:lualine_a [:mode]
+                                                 :lualine_b [:branch]
+                                                 :lualine_c [:filename]
+                                                 :lualine_x [:encoding :fileformat :filetype]
+                                                 :lualine_y [:progress]
+                                                 :lualine_z [:location]}
+                                      :inactive_sections {:lualine_a []
+                                                          :lualine_b []
+                                                          :lualine_c [:filename]
+                                                          :lualine_x [:location]
+                                                          :lualine_y []
+                                                          :lualine_z []}
+                                      :extensions [:fzf]}))
                     (values))})
   (p.use {1 :nvim-treesitter/completion-treesitter
           :requires [:nvim-treesitter
