@@ -88,3 +88,6 @@
 (nvim.set_var :completion_chain_complete_list
               {:default {:default [{:complete_items [:ts]}]}})
 (nvim.command "autocmd BufEnter * lua require'completion'.on_attach()")
+
+;; matchup
+(nvim.set_var :matchup_transmute_enabled 1)
