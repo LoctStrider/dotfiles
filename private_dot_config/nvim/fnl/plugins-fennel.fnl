@@ -71,4 +71,5 @@
   (values))
 
 (p.startup {1 packer-startup
-            :config {:git {:clone_timeout 300}}})
+            :config {:max_jobs 8
+                     :git {:clone_timeout 300}}})
